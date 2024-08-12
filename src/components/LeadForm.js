@@ -42,12 +42,26 @@ const LeadForm = ({ show, handleClose, currentLead, refreshLeads }) => {
     } else {
       
       try {
-        await axios.post('http://43.204.150.30:5000/api/leads', {
-          name,
-          email,
-          number,
-          product,
+        const response = await fetch('https://43.204.150.30:5000/api/leads', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            number,
+            product,
+          }),
         });
+      
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+      
+        const data = await response.json();
+        console.log('Success:', data);
+      
         refreshLeads();
         handleClose();
       } catch (error) {
