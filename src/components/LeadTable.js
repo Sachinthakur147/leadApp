@@ -21,7 +21,7 @@ const LeadTable = () => {
 
   const fetchLeads = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/leads');
+      const response = await axios.get('http://43.204.150.30:5000/api/leads');
       setLeads(response.data);
     } catch (error) {
       console.error('Error fetching leads:', error);
@@ -30,7 +30,7 @@ const LeadTable = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/leads/${id}`);
+      await axios.delete(`http://43.204.150.30:5000/api/leads/${id}`);
       fetchLeads();
     } catch (error) {
       console.error('Error deleting lead:', error);

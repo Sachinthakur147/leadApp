@@ -28,7 +28,7 @@ const LeadForm = ({ show, handleClose, currentLead, refreshLeads }) => {
     if (currentLead) {
     
       try {
-        await axios.put(`http://localhost:5000/api/leads/${currentLead._id}`, {
+        await axios.put(`http://43.204.150.30:5000/api/leads/${currentLead._id}`, {
           name,
           email,
           number,
@@ -42,7 +42,7 @@ const LeadForm = ({ show, handleClose, currentLead, refreshLeads }) => {
     } else {
       
       try {
-        await axios.post('http://localhost:5000/api/leads', {
+        await axios.post('http://43.204.150.30:5000/api/leads', {
           name,
           email,
           number,
