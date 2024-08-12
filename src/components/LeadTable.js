@@ -24,7 +24,7 @@ const LeadTable = () => {
       const response = await axios.get('http://43.204.150.30:5000/api/leads');
       setLeads(response.data);
     } catch (error) {
-      console.error('Error fetching leads:', error);
+      console.error('Error fetching leads:',error);
     }
   };
 
